@@ -1,11 +1,16 @@
 import express from 'express';
+import { connectDB } from './db';
+import usersRouter from './routes/users';
+import messagesRouter from './routes/messages';
 
+connectDB();
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
+app.use(express.json());
+app.use('/users', usersRouter);
+app.use('/messages', messagesRouter);
 
-app.listen(5000, () => {
-  console.log('Server running on port 3000');
+const PORT = process.env.PORT || 4001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

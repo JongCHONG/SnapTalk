@@ -5,7 +5,9 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "concurrently --prefix \"[{name}]\" --names \"backend,mobile\" --prefix-colors \"blue,green\" \"npm run dev --prefix apps/api\" \"npm run start --prefix apps/mobile\""
+    "dev": "concurrently --prefix \"[{name}]\" --names \"backend,mobile\" --prefix-colors \"blue,green\" \"npm run dev --prefix apps/api\" \"npm run start --prefix apps/mobile\"",
+    "android": "npm run android --prefix apps/mobile",
+    "ios": "npm run ios --prefix apps/mobile"
   },
   "devDependencies": {
     "concurrently": "^9.2.0"
