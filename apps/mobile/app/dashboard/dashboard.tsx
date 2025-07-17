@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Pressable } from "react-native";
+import { View, Pressable, Text } from "react-native";
 import { Stack, useRouter } from "expo-router";
 import { io } from "socket.io-client";
 import { Button, IconButton, TextInput } from "react-native-paper";
@@ -7,6 +7,7 @@ import { Button, IconButton, TextInput } from "react-native-paper";
 import dashboardStyles from "./dashboardStyles";
 
 import CustomDrawer from "../components/CustomDrawer/customDrawer";
+import Conversation from "../components/Conversation/conversation";
 
 const dashboard = () => {
   const router = useRouter();
@@ -87,43 +88,13 @@ const dashboard = () => {
             <CustomDrawer usersOnline={usersOnline} />
           </>
         )}
-        <View style={dashboardStyles.main}>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              marginTop: 24,
-              paddingHorizontal: 8,
-            }}
-          >
-            <TextInput
-              style={{
-                flex: 1,
-                backgroundColor: "#f5f5f5",
-                borderRadius: 24,
-                paddingHorizontal: 16,
-                fontSize: 16,
-                marginRight: 8,
-                elevation: 2,
-              }}
-              placeholder="Écris ton message..."
-              value={message}
-              onChangeText={setMessage}
-              underlineColor="transparent"
-              theme={{ colors: { primary: "#007AFF" } }}
-            />
-            <Button
-              mode="contained"
-              onPress={handleSendMessage}
-              disabled={!message.trim()}
-              style={{ borderRadius: 24, elevation: 2 }}
-              labelStyle={{ fontWeight: "bold", fontSize: 16 }}
-              contentStyle={{ paddingHorizontal: 16, height: 48 }}
-            >
-              Envoyer
-            </Button>
-          </View>
-        </View>
+        <Conversation
+          messages={messages}
+          user={user}
+          message={message}
+          setMessage={setMessage}
+          handleSendMessage={handleSendMessage}
+        />
       </View>
     </>
   );
