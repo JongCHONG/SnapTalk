@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Text, TextInput, Button, Card, Snackbar } from "react-native-paper";
 import { Link, Stack } from "expo-router";
-import { registerStyles } from "./registerStyles";
+import registerStyles from "./registerStyles";
 
 interface RegisterForm {
   username: string;
@@ -78,7 +78,7 @@ export default function Register() {
           visible={showError}
           onDismiss={() => setShowError(false)}
           duration={4000}
-          style={{ backgroundColor: '#d32f2f' }}
+          style={{ backgroundColor: "#d32f2f" }}
         >
           {generalError}
         </Snackbar>
