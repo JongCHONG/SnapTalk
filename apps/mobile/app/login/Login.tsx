@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Text, TextInput, Button, Card, Snackbar } from "react-native-paper";
-import { Link, Stack } from "expo-router";
+import { Link, Stack, useRouter } from "expo-router";
+
 import { loginStyles } from "./loginStyles";
 
 interface LoginForm {
@@ -18,6 +19,7 @@ const defaultValues: LoginForm = {
 export default function Login() {
   const [loginError, setLoginError] = useState<string | null>(null);
   const [showError, setShowError] = useState(false);
+  const router = useRouter();
 
   const {
     control,
@@ -40,8 +42,10 @@ export default function Login() {
           setShowError(true);
           throw new Error(result.message);
         }
-        // window.location.href = "/dashboard";
-        console.log("API response:", result);
+
+        router.replace("/dashboard");
+        localStorage.setItem("user", JSON.stringify(result));
+        // console.log("API response:", result);
       })
       .catch((error) => {
         console.error("Erreur lors de la connexion:", error);
