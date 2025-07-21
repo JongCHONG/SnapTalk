@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { Text, TextInput, Button, Card, Snackbar } from "react-native-paper";
 import { Link, Stack, useRouter } from "expo-router";
 
-import loginStyles from "./loginStyles";
+import loginStyles from "./LoginStyles";
 
 interface LoginForm {
   email: string;
