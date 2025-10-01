@@ -1,50 +1,170 @@
-# Welcome to your Expo app 👋
+# SnapTalk Mobile App 📱
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Application mobile de SnapTalk construite avec React Native et Expo. Cette app permet aux utilisateurs de communiquer en temps réel via une interface moderne et intuitive.
 
-## Get started
+## 🚀 Technologies
 
-1. Install dependencies
+- **React Native** - Framework mobile cross-platform
+- **Expo** - Plateforme de développement React Native
+- **Expo Router** - Navigation basée sur les fichiers
+- **React Native Paper** - Composants Material Design
+- **Socket.IO Client** - Communication temps réel
+- **React Hook Form** - Gestion des formulaires
+- **TypeScript** - Typage statique
 
-   ```bash
-   npm install
-   ```
+## 📱 Fonctionnalités
 
-2. Start the app
+- ✅ **Authentification** - Connexion et inscription
+- ✅ **Chat temps réel** - Messages instantanés via WebSockets
+- ✅ **Liste d'utilisateurs** - Voir qui est en ligne
+- ✅ **Interface Material** - Design moderne et responsive
+- ✅ **Support Android** - Application native Android
 
-   ```bash
-   npx expo start
-   ```
+## 🏗️ Structure du projet
 
-In the output, you'll find options to open the app in a
+```
+mobile/
+├── app/                     # Navigation et écrans (Expo Router)
+│   ├── components/          # Composants réutilisables
+│   │   ├── Conversation/    # Composant de chat
+│   │   └── CustomDrawer/    # Menu de navigation
+│   ├── dashboard/           # Écran principal
+│   ├── login/              # Écran de connexion
+│   ├── register/           # Écran d'inscription
+│   ├── _layout.tsx         # Layout principal
+│   └── index.tsx           # Page d'accueil
+├── assets/                 # Images et polices
+├── android/               # Configuration Android native
+└── package.json           # Dépendances et scripts
+```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠️ Installation et démarrage
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Prérequis
+- Node.js (v18+)
+- Expo CLI : `npm install -g @expo/cli`
+- Pour Android : Android Studio et SDK
 
-## Get a fresh project
+### 1. Installation des dépendances
 
-When you're ready, run:
+```bash
+npm install
+```
 
+### 2. Démarrage du serveur de développement
+
+```bash
+npm start
+# ou
+npx expo start
+```
+
+### 3. Lancement sur appareil
+
+#### Android
+```bash
+npm run android
+# ou
+npx expo run:android
+```
+
+#### iOS (macOS uniquement)
+```bash
+npm run ios
+# ou
+npx expo run:ios
+```
+
+#### Web
+```bash
+npm run web
+# ou
+npx expo start --web
+```
+
+## 🔧 Scripts disponibles
+
+- `npm start` - Démarre le serveur de développement Expo
+- `npm run android` - Lance sur Android
+- `npm run ios` - Lance sur iOS
+- `npm run web` - Lance sur navigateur web
+- `npm run lint` - Vérifie le code avec ESLint
+- `npm run reset-project` - Remet le projet à zéro (développement)
+
+## 🌐 Configuration Backend
+
+L'application mobile se connecte à l'API backend SnapTalk. Assurez-vous que :
+
+1. Le serveur backend est démarré (`npm run dev` depuis la racine)
+2. L'URL de l'API est correctement configurée dans l'app
+3. MongoDB est en cours d'exécution
+
+## 📂 Développement
+
+### Navigation (Expo Router)
+- **File-based routing** : Chaque fichier dans `app/` devient une route
+- **Layout partagé** : `_layout.tsx` définit la structure commune
+- **Navigation** : Utilise Expo Router pour la navigation between écrans
+
+### Composants principaux
+- **Conversation** : Gestion du chat en temps réel
+- **CustomDrawer** : Menu de navigation latéral
+- **Écrans Auth** : Login et Register avec validation
+
+### Gestion d'état
+- **Socket.IO** : Communication temps réel avec le backend
+- **React Hook Form** : Gestion des formulaires
+- **Context/State** : État local React pour l'UI
+
+## 🎨 Thème et Design
+
+L'application utilise React Native Paper pour un design Material consistant :
+- **Couleurs** : Thème Material Design
+- **Composants** : Buttons, TextInputs, Cards standardisés
+- **Navigation** : Drawer navigation avec icônes
+
+## 🔍 Debugging
+
+### Expo Dev Tools
+```bash
+npm start
+# Puis appuyez sur 'm' pour ouvrir le menu
+```
+
+### Logs
+```bash
+npx expo logs
+```
+
+### Reset du projet
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📱 Build et déploiement
 
-## Learn more
+### Development Build
+```bash
+npx expo install --fix
+npx expo prebuild
+npx expo run:android
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Production Build
+Suivez la [documentation Expo](https://docs.expo.dev/deploy/build-project/) pour les builds de production.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🤝 Contribution
 
-## Join the community
+Voir le README principal du projet SnapTalk pour les guidelines de contribution.
 
-Join our community of developers creating universal apps.
+## 📚 Ressources utiles
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Documentation Expo](https://docs.expo.dev/)
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [Expo Router Guide](https://docs.expo.dev/router/introduction)
+- [React Native Paper](https://callstack.github.io/react-native-paper/)
+- [Socket.IO Client](https://socket.io/docs/v4/client-api/)
+
+---
+
+Pour plus d'informations sur le projet complet, consultez le [README principal](../../README.md).
